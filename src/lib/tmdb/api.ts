@@ -6,7 +6,7 @@ const axiosInstance = axios.create({
     baseURL: 'https://api.themoviedb.org/3',
     headers: {
         accept: 'application/json',
-        Authorization: tmdbConfig.accessToken
+        Authorization: 'Bearer ' + tmdbConfig.accessToken
     }
 })
 

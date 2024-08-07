@@ -9,7 +9,7 @@ function App() {
 
     return (
         <>
-            <main className='flex h-screen w-screen box-border dark:bg-slate-800'>
+            <main className='flex h-screen w-screen box-border dark:bg-dark-2 overflow-y-auto w-screen'>
                <Routes>
                     <Route index element={<Home/>}/>
                </Routes>

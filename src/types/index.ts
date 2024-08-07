@@ -9,6 +9,7 @@ export type IMovie = {
     popularity: number,
     adult: boolean,
     backdrop_path: string,
+    poster_path: string,
     genre_ids: number[],
 }
 
