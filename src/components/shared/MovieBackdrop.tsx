@@ -1,13 +1,11 @@
-import { tmdbImage } from '@/lib/utils';
-import React, { forwardRef, useEffect, useState } from 'react'
-import ReactPlayer from 'react-player';
+import React, { forwardRef } from 'react'
 
 
 type MovieBackdropProps = {
     imgUrl?: string;
 }
 
-const MovieBackdrop = forwardRef(({ imgUrl }: MovieBackdropProps, ref:React.ForwardedRef<HTMLDivElement>) => {
+const MovieBackdrop = forwardRef(({ }: MovieBackdropProps, ref:React.ForwardedRef<HTMLDivElement>) => {
 
     return (
         <>

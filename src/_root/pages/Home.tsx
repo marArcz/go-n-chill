@@ -8,10 +8,10 @@ import { useEffect, useRef, useState } from "react"
 import { FaPlay } from "react-icons/fa";
 
 const Home = () => {
-    const [page, setPage] = useState(1);
-    const [activeMovieTrailer, setActiveMovieTrailer] = useState(null)
+    // const [page, setPage] = useState(1);
+    // const [activeMovieTrailer, setActiveMovieTrailer] = useState(null)
     const trailerContainerRef = useRef<HTMLDivElement>(null);
-    const { data: nowPlaying, isPending: isNowPlayingLoading, isError: isNowPlayingError } = useGetNowPlaying()
+    const { data: nowPlaying, isPending: isNowPlayingLoading } = useGetNowPlaying()
     const [activeMovie, setActiveMovie] = useState<IMovie | null>(nowPlaying?.results[0] || null)
     console.log('movies: ', nowPlaying)
 
