@@ -1,9 +1,17 @@
+import { useEffect, useRef, useState } from "react";
 import { MdSearch } from "react-icons/md";
 
-const AppHeader = () => {
+type Props = {
+    scrollPosition:number
+}
+
+const AppHeader = ({scrollPosition}:Props) => {
+    const headerRef = useRef();
+
+
     return (
         <>
-            <header className='app-header'>
+            <header className={`app-header ${scrollPosition >= 200 ? 'filled':''}`}>
                 <div>
                     <img src="/images/logo-text.png" alt="" />
                 </div>
@@ -15,7 +23,7 @@ const AppHeader = () => {
                             placeholder='Search for a movie'
                         />
                         <div className="absolute top-[50%] translate-y-[-50%] end-[15px]">
-                            <MdSearch className="text-gray-100" size={20}/>
+                            <MdSearch className="text-gray-100" size={20} />
                         </div>
                     </div>
                 </div>

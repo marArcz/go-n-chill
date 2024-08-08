@@ -1,27 +1,27 @@
+import { tmdbImage } from '@/lib/utils';
 import React, { forwardRef } from 'react'
+import ReactPlayer from 'react-player';
 
 
 type MovieBackdropProps = {
     imgUrl?: string;
+    trailerKey?: string | null
 }
 
-const MovieBackdrop = forwardRef(({ }: MovieBackdropProps, ref:React.ForwardedRef<HTMLDivElement>) => {
+const MovieBackdrop = forwardRef(({ imgUrl, trailerKey }: MovieBackdropProps, ref: React.ForwardedRef<HTMLDivElement>) => {
 
     return (
         <>
-            <div className="relative ">
+            <div className="relative">
                 <div className="backdrop-overlay"></div>
-                {/* {
+                {
                     imgUrl ? (
-                        <img src={tmdbImage(imgUrl)} alt="" className='h-[50vh] w-screen object-cover object-top transition-all' />
+                        <img src={tmdbImage(imgUrl)} alt="" className='h-[60vh] w-full object-cover object-top transition-all' />
                     ) : (
-                        <div className="movie-backdrop h-[45vh]">
+                        <div className="movie-backdrop h-[60vh]">
                         </div>
                     )
-                } */}
-                <div className='trailer-container h-[50vh] w-screen p-0' ref={ref}>
-
-                </div>
+                }
             </div>
         </>
     )

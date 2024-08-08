@@ -1,12 +1,17 @@
 import { Route, Routes } from 'react-router-dom'
 import Home from './_root/pages/Home'
+import RootLayout from './_root/RootLayout'
+import Watch from './_root/pages/Watch'
 
 function App() {
     return (
         <>
-            <main className='flex h-screen box-border dark:bg-dark-2 overflow-y-auto w-screen'>
+            <main className='flex h-screen box-border dark:bg-dark-2  w-screen'>
                <Routes>
-                    <Route index element={<Home/>}/>
+                    <Route element={<RootLayout/>}>
+                        <Route index element={<Home/>}/>
+                        <Route path='watch/:id' element={<Watch/>}/>
+                    </Route>
                </Routes>
             </main>
         </>
