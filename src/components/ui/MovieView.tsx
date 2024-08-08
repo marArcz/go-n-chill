@@ -18,9 +18,9 @@ const MovieView = ({ id, show = false, handleClose }: Props) => {
                         exit={{ opacity: 0 }}
                         className='movie-view'
                         onClick={() => handleClose()}>
-                        <div className=" w-full mx-auto">
+                        <div className="w-full glass overflow-clip rounded-md border-none lg:w-[80%] lg:h-[70vh] sm:h-[40vh] h-[30vh]">
                             <iframe
-                                className='w-full lg:h-full sm:h-[40vh] h-[30vh]'
+                                className='w-full h-full'
                                 allowFullScreen
                                 src={`https://vidsrc.xyz/embed/movie/${id}`}
                             ></iframe>
