@@ -8,8 +8,8 @@ import { useParams } from 'react-router-dom'
 
 const Watch = () => {
     const { id } = useParams();
+    const [showMovieView, setShowMovieView] = useState(false)
     const { data: movie } = useGetMovieById(id || '');
-
 
     return (
         <>
