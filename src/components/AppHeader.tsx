@@ -1,14 +1,9 @@
-import { useEffect, useRef, useState } from "react";
 import { MdSearch } from "react-icons/md";
 
 type Props = {
     scrollPosition:number
 }
-
 const AppHeader = ({scrollPosition}:Props) => {
-    const headerRef = useRef();
-
-
     return (
         <>
             <header className={`app-header ${scrollPosition >= 200 ? 'filled':''}`}>

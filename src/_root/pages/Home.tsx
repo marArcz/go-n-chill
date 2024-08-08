@@ -1,11 +1,10 @@
-import AppHeader from "@/components/AppHeader"
 import MovieBackdrop from "@/components/shared/MovieBackdrop";
 import NowPlayingMovieList from "@/components/ui/NowPlayingMovieList";
 import { useGetNowPlaying, useGetPopular } from "@/lib/react-query/queriesAndMutations"
 import { getMovieById } from "@/lib/tmdb/api";
 import { tmdbImage } from "@/lib/utils";
 import { IMovieDetails } from "@/types";
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useState } from "react"
 import { Link } from "react-router-dom";
 
 const Home = () => {
@@ -60,7 +59,7 @@ const Home = () => {
                     <h2 className="text-2xl">Popular Movies</h2>
                     <div className="movie-list-hor mt-4 ">
                         {
-                            popularMovies && popularMovies.results.map((movie) => {
+                            !isPopularMoviesLoading && popularMovies && popularMovies.results.map((movie) => {
                                 return (
                                     <div key={movie.id} className="relative movie-card">
                                         <Link to={`/watch/${movie.id}`}>

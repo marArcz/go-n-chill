@@ -1,6 +1,6 @@
 import axios from "axios"
 import { tmdbConfig } from "./config"
-import { IGetMovieListResponseData, IMovie, IMovieCategory, IMovieDetails, IMovieVideo } from "../../types";
+import { IGetMovieListResponseData, IMovieCategory, IMovieDetails, IMovieVideo } from "../../types";
 
 const axiosInstance = axios.create({
     baseURL: 'https://api.themoviedb.org/3',
