@@ -1,7 +1,13 @@
 import React from 'react'
 import ReactPlayer from 'react-player'
 
-const MovieView = ({ id }: { id?: string | null | number }) => {
+type Props = {
+    id?: string | null | number
+    show?: boolean
+}
+
+const MovieView = ({ id, show=false }: Props) => {
+    if(!show) return
     return (
         <div className='movie-view'>
             <div className=" w-full h-full ">
@@ -11,7 +17,7 @@ const MovieView = ({ id }: { id?: string | null | number }) => {
                     src={`https://vidsrc.xyz/embed/movie/${id}`}
                 ></iframe>
             </div>
-        </div >
+        </div>
     )
 }
 
