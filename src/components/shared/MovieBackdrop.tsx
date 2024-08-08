@@ -1,6 +1,4 @@
 import { tmdbImage } from '@/lib/utils';
-import React, { forwardRef } from 'react'
-import ReactPlayer from 'react-player';
 
 
 type MovieBackdropProps = {
@@ -8,7 +6,7 @@ type MovieBackdropProps = {
     trailerKey?: string | null
 }
 
-const MovieBackdrop = forwardRef(({ imgUrl, trailerKey }: MovieBackdropProps, ref: React.ForwardedRef<HTMLDivElement>) => {
+const MovieBackdrop = ({ imgUrl }: MovieBackdropProps) => {
 
     return (
         <>
@@ -25,6 +23,6 @@ const MovieBackdrop = forwardRef(({ imgUrl, trailerKey }: MovieBackdropProps, re
             </div>
         </>
     )
-})
+}
 
 export default MovieBackdrop
