@@ -1,9 +1,9 @@
+import MovieBackdrop from '@/components/shared/MovieBackdrop';
+import MovieView from '@/components/ui/MovieView';
 import { useGetMovieById } from '@/lib/react-query/queriesAndMutations';
 import { useState } from 'react'
 import { FaPlay } from 'react-icons/fa';
 import { useParams } from 'react-router-dom'
-import { AnimatePresence, motion } from 'framer-motion'
-import MovieBackdrop from '@/components/shared/MovieBackdrop';
 
 const Watch = () => {
     const { id } = useParams();
@@ -12,41 +12,12 @@ const Watch = () => {
 
     return (
         <>
-            {/* <MovieView handleClose={() => setShowMovieView(false)} id={id} show={showMovieView} /> */}
+            <MovieView handleClose={() => setShowMovieView(false)} id={id} show={showMovieView}/>
             <section className='w-full'>
-                {/* <MovieBackdrop
+                <MovieBackdrop
                     imgUrl={movie?.backdrop_path}
-                /> */}
-                <div className="relative lg:h-[60vh] h-[40vh]">
-                    <div className="backdrop-overlay"></div>
-                    <AnimatePresence>
-                        {showMovieView && (
-                            <motion.div
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                exit={{ opacity: 0 }}
-                                className='h-full absolute w-full'
-                            >
-                                <div className="h-full w-full">
-                                    <iframe
-                                        className='w-full h-full object-cover'
-                                        allowFullScreen
-                                        src={`https://vidsrc.xyz/embed/movie/${id}`}
-                                    ></iframe>
-                                </div>
-                            </motion.div>
-                        )}
-                    </AnimatePresence>
-                    {!showMovieView && <MovieBackdrop imgUrl={movie?.backdrop_path} />}
-                </div>
-                <motion.div
-                    initial={{
-                        marginTop: '-20vh'
-                    }}
-                    animate={{
-                        marginTop: showMovieView ? '20px' : '-20vh'
-                    }}
-                    className=" padded-container relative">
+                />
+                <div className="mt-[-30vh] padded-container relative">
                     {
                         movie && (
                             <>
@@ -63,7 +34,7 @@ const Watch = () => {
                                     </ul>
                                 </div>
                                 <div className="grid-container lg:grid-cols-5 grid-cols-2 w-full mt-10">
-                                    <button key={movie.id} onClick={() => setShowMovieView(s => !s)} className="flex group lg:col-span-1 sm:col-span-1 col-span-2 justify-center items-center relative h-[160px] btn-play group">
+                                    <button key={movie.id} onClick={() => setShowMovieView(true)} className="flex group lg:col-span-1 col-span-2 justify-center items-center relative h-[160px] btn-play group">
                                         <div className=" relative z-30 group-hover:scale-110 transition-all">
                                             <FaPlay
                                                 className=" text-white "
@@ -76,7 +47,7 @@ const Watch = () => {
                         )
                     }
 
-                </motion.div>
+                </div>
             </section>
         </>
     )

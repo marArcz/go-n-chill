@@ -14,7 +14,7 @@ const AppHeader = ({scrollPosition}:Props) => {
                     <div className="search-box relative ">
                         <input
                             type="text"
-                            className='  placeholder:text-gray-50 text-lg input-glass relative rounded-2xl px-5 h-[55px] text-white'
+                            className=' placeholder:text-gray-50 lg:text-lg input-glass relative rounded-2xl px-5 h-[55px] text-white'
                             placeholder='Search for a movie'
                         />
                         <div className="absolute top-[50%] translate-y-[-50%] end-[15px]">
