@@ -58,15 +58,17 @@ const Home = () => {
             <section id="popular-movies" className="mt-4 py-5">
                 <div className="padded-container text-white">
                     <h2 className="text-2xl">Popular Movies</h2>
-                    <div className="grid-container mt-4 ">
+                    <div className="movie-list-hor mt-4 ">
                         {
-                            popularMovies && popularMovies.results.map((movie, index) => {
+                            popularMovies && popularMovies.results.map((movie) => {
                                 return (
-                                    <div key={movie.id} className="relative">
-                                        <div className="relative movie-card overflow-clip h-[340px] rounded-[5px]">
-                                            <img src={tmdbImage(movie.poster_path)} className="absolute opacity-70 h-full object-cover w-full" />
-                                        </div>
-                                        <p className="mt-2 text-lg">{movie.title}</p>
+                                    <div key={movie.id} className="relative movie-card">
+                                        <Link to={`/watch/${movie.id}`}>
+                                            <div className="relative movie-card__img overflow-clip rounded-[5px]">
+                                                <img src={tmdbImage(movie.poster_path)} className="absolute opacity-70 h-full object-cover w-full" />
+                                            </div>
+                                        </Link>
+                                        <p className="mt-2 lg:text-lg text-ellipsis ">{movie.title}</p>
                                     </div>
                                 )
                             })

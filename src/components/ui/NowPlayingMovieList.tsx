@@ -30,8 +30,6 @@ const NowPlayingMovieList = ({isLoading,movies,activeMovieIndex,setActiveMovieIn
                         </>
                     ) : (
                         <>
-
-
                             {
                                 movies && movies.map((movie, index) => {
                                     if (index === activeMovieIndex) {
@@ -50,7 +48,7 @@ const NowPlayingMovieList = ({isLoading,movies,activeMovieIndex,setActiveMovieIn
                                         )
                                     }
                                     return (
-                                        <button key={movie.id} onMouseEnter={() => setActiveMovieIndex(index)} className="flex justify-center group items-center relative now-playing-card h-[160px] overflow-clip">
+                                        <button key={movie.id} tabIndex={index} onFocus={() => setActiveMovieIndex(index)} onMouseEnter={() => setActiveMovieIndex(index)} className="flex justify-center group items-center relative now-playing-card h-[160px] overflow-clip">
                                             <img src={tmdbImage(movie.backdrop_path)} className="w-full h-full object-cover absolute left-0 z-10 opacity-70 group-hover:opacity-100 transition" alt="" />
                                         </button>
                                     )

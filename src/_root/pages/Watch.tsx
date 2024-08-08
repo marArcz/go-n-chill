@@ -1,8 +1,7 @@
 import MovieBackdrop from '@/components/shared/MovieBackdrop';
 import MovieView from '@/components/ui/MovieView';
 import { useGetMovieById } from '@/lib/react-query/queriesAndMutations';
-import { tmdbImage } from '@/lib/utils';
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { FaPlay } from 'react-icons/fa';
 import { useParams } from 'react-router-dom'
 
@@ -13,7 +12,7 @@ const Watch = () => {
 
     return (
         <>
-            <MovieView id={id}/>
+            <MovieView handleClose={() => setShowMovieView(false)} id={id} show={showMovieView}/>
             <section className='w-full'>
                 <MovieBackdrop
                     imgUrl={movie?.backdrop_path}
@@ -34,8 +33,8 @@ const Watch = () => {
                                         }
                                     </ul>
                                 </div>
-                                <div className="grid-container w-full mt-10">
-                                    <button key={movie.id} className="flex group justify-center items-center relative h-[160px] btn-play group">
+                                <div className="grid-container lg:grid-cols-5 grid-cols-2 w-full mt-10">
+                                    <button key={movie.id} onClick={() => setShowMovieView(true)} className="flex group lg:col-span-1 col-span-2 justify-center items-center relative h-[160px] btn-play group">
                                         <div className=" relative z-30 group-hover:scale-110 transition-all">
                                             <FaPlay
                                                 className=" text-white "
