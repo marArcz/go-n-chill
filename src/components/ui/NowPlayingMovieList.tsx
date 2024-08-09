@@ -18,14 +18,15 @@ const NowPlayingMovieList = ({isLoading,movies,activeMovieIndex,setActiveMovieIn
                 {
                     isLoading ? (
                         <>
-                            <div className="flex justify-center items-center relative now-playing-card active h-[160px] overflow-clip">
-                                {/* <img src="/images/garfield.jpg" className="w-full h-full object-cover absolute left-0 z-10 opacity-100 bg-slate-300" alt="" /> */}
-
-                                <div className="w-full h-full bg-gray-500 absolute left-0 z-30 flex justify-center items-center" >
-                                </div>
+                            <div className="flex justify-center items-center relative glass h-[160px] overflow-clip rounded-[30px]">
                             </div>
-                            <div className="flex justify-center items-center relative now-playing-card h-[160px] overflow-clip">
-                                <img src="/images/garfield.jpg" className="w-full h-full object-cover absolute left-0 z-10 opacity-70" alt="" />
+                            <div className="flex justify-center items-center relative glass h-[160px] overflow-clip rounded-[30px]">
+                            </div>
+                            <div className="flex justify-center items-center relative glass h-[160px] overflow-clip rounded-[30px]">
+                            </div>
+                            <div className="flex justify-center items-center relative glass h-[160px] overflow-clip rounded-[30px]">
+                            </div>
+                            <div className="flex justify-center items-center relative glass h-[160px] overflow-clip rounded-[30px]">
                             </div>
                         </>
                     ) : (

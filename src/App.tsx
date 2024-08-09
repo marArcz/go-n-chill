@@ -2,6 +2,7 @@ import { Route, Routes } from 'react-router-dom'
 import Home from './_root/pages/Home'
 import RootLayout from './_root/RootLayout'
 import Watch from './_root/pages/Watch'
+import './App.css'
 
 function App() {
     return (

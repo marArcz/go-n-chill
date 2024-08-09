@@ -7,7 +7,7 @@
   .app-header {
     @apply flex items-center lg:py-5 py-5 padded-container absolute z-10 box-border top-0 w-full left-0;
   }
-  .app-header.filled{
+  .app-header.filled {
     background: rgba(88, 88, 88, 0.2);
     backdrop-filter: blur(4px);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.19);
@@ -18,7 +18,6 @@
   }
 
   .glass {
-  
     /* From https://css.glass */
     background: rgba(219, 219, 219, 0.21);
     border-radius: 16px;
@@ -27,7 +26,6 @@
     -webkit-backdrop-filter: blur(4.8px);
     border: 1px solid rgba(252, 252, 252, 0.657);
   }
-
 
   .input-glass {
     @apply glass focus:outline-none focus:border-white;
@@ -38,7 +36,8 @@
     border-radius: 30px !important;
   }
 
-  .now-playing-card:hover, .now-playing-card:focus {
+  .now-playing-card:hover,
+  .now-playing-card:focus {
     box-shadow: 1px 1px 3px 2px rgba(225, 225, 225, 0.622);
   }
   .now-playing-card.active {
@@ -67,32 +66,83 @@
     @apply grid lg:grid-cols-5 sm:grid-cols-2 grid-cols-1 w-full gap-x-[20px] gap-y-[32px];
   }
 
-  .btn-play{
+  .btn-play {
     background: rgba(184, 90, 37, 0.46);
     box-shadow: 1px 1px 0 2px rgba(237, 116, 48, 0.49);
     backdrop-filter: blur(4px);
     border-radius: 30px;
     transition: 200ms all;
   }
-  .btn-play:hover{
+
+  .glass-card {
+    background: rgba(86, 86, 86, 0.5);
+    box-shadow: 1px 1px 0 2px rgba(225, 225, 225, 0.5);
+    backdrop-filter: blur(4px);
+    border-radius: 30px;
+    transition: 200ms all;
+  }
+
+  .btn-play:hover {
     background: rgba(184, 90, 37, 0.6);
     box-shadow: 1px 1px 0 2px rgba(237, 116, 48, 0.65);
   }
-  .movie-view{
+  .movie-view {
     @apply absolute z-[9999] top-0 left-0 w-screen h-screen px-5 py-4 bg-slate-800 bg-opacity-80 flex justify-center items-center;
   }
 
-  .movie-list-hor{
-    @apply flex gap-[20px] w-full overflow-x-auto;
+  .movie-list-hor {
+    @apply flex gap-[20px] w-full overflow-x-auto py-3  px-2;
   }
-  .movie-card{
-    
-  }
+
   .movie-card__img {
-    box-shadow: 1px 1px 1px 2px rgba(255, 255, 255,0.6);
+    box-shadow: 1px 1px 1px 2px rgba(255, 255, 255, 0.6);
     backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 1);
 
     @apply lg:w-[232px] lg:h-[340px] w-[150px] h-[200px];
+  }
+}
+
+.sound-wave {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.bar {
+  width: 6px;
+  height: 40px;
+  background-color: #ed7430;
+  border-radius: 5px;
+  animation: bounce 1.2s infinite ease-in-out;
+}
+
+.bar:nth-child(2) {
+  height: 60px;
+  animation-delay: -1.1s;
+}
+
+.bar:nth-child(3) {
+  height: 40px;
+  animation-delay: -1s;
+}
+
+.bar:nth-child(4) {
+  height: 70px;
+  animation-delay: -0.9s;
+}
+
+.bar:nth-child(5) {
+  height: 40px;
+  animation-delay: -0.8s;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    /* height: 40px; */
+    transform: scaleY(0.6);
+  }
+  50% {
+    transform: scaleY(1);
   }
 }

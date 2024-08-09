@@ -1,0 +1,29 @@
+/* Apply styles to all scrollbars */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 12px; /* Width of the scrollbar */
+  height: 12px; /* Height of the scrollbar (for horizontal scrollbar) */
+}
+
+/* Track */
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #41414133; /* Background of the track */
+  border-radius: 6px; /* Rounded corners on the handle */
+
+}
+
+/* Handle */
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #41414133; /* Color of the handle */
+  border-radius: 6px; /* Rounded corners on the handle */
+  border: 1px solid #f1f1f16a; /* Optional: Border around the handle */
+}
+
+/* Handle on hover */
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: #808080c7; /* Darker color when hovered */
+}
+
+/* Optional: Style the scrollbar corner when both horizontal and vertical scrollbars are present */
+.custom-scrollbar::-webkit-scrollbar-corner {
+  background-color: #f1f1f1;
+}

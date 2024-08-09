@@ -10,7 +10,7 @@ const MovieBackdrop = ({ imgUrl }: MovieBackdropProps) => {
 
     return (
         <>
-            <div className="relative">
+            <div className="relative w-full">
                 <div className="backdrop-overlay"></div>
                 {
                     imgUrl ? (

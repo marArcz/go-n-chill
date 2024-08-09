@@ -1,6 +1,6 @@
 import MovieBackdrop from "@/components/shared/MovieBackdrop";
 import NowPlayingMovieList from "@/components/ui/NowPlayingMovieList";
-import { useGetNowPlaying, useGetPopular } from "@/lib/react-query/queriesAndMutations"
+import { useGetNowPlaying, useGetPopular, useGetTopRated } from "@/lib/react-query/queriesAndMutations"
 import { getMovieById } from "@/lib/tmdb/api";
 import { tmdbImage } from "@/lib/utils";
 import { IMovieDetails } from "@/types";
@@ -11,6 +11,7 @@ const Home = () => {
     const [activeMovieIndex, setActiveMovieIndex] = useState(0);
     const { data: nowPlaying, isPending: isNowPlayingLoading } = useGetNowPlaying(1, 5)
     const { data: popularMovies, isPending: isPopularMoviesLoading } = useGetPopular(1);
+    const { data: topRatedMovies, isPending: isTopRatedMoviesLoading } = useGetTopRated(1);
     const [activeMovie, setActiveMovie] = useState<IMovieDetails | null>(null)
 
     useEffect(() => {
@@ -24,7 +25,7 @@ const Home = () => {
 
     return (
         <>
-            <section className="hero w-full">
+            <section className="hero w-full overflow-x-hidden">
                 <MovieBackdrop imgUrl={activeMovie?.backdrop_path} />
                 <div className="mt-[-30vh] padded-container relative">
                     {
@@ -57,9 +58,30 @@ const Home = () => {
             <section id="popular-movies" className="mt-4 py-5">
                 <div className="padded-container text-white">
                     <h2 className="text-2xl">Popular Movies</h2>
-                    <div className="movie-list-hor mt-4 ">
+                    <div className="movie-list-hor custom-scrollbar mt-4 ">
                         {
                             !isPopularMoviesLoading && popularMovies && popularMovies.results.map((movie) => {
+                                return (
+                                    <div key={movie.id} className="relative movie-card">
+                                        <Link to={`/watch/${movie.id}`}>
+                                            <div className="relative movie-card__img overflow-clip rounded-[5px]">
+                                                <img src={tmdbImage(movie.poster_path)} className="absolute opacity-70 h-full object-cover w-full" />
+                                            </div>
+                                        </Link>
+                                        <p className="mt-2 lg:text-lg text-ellipsis ">{movie.title}</p>
+                                    </div>
+                                )
+                            })
+                        }
+                    </div>
+                </div>
+            </section>
+            <section id="top-rated-movies" className="mt-4 py-5">
+                <div className="padded-container text-white">
+                    <h2 className="text-2xl">Top Rated Movies</h2>
+                    <div className="movie-list-hor custom-scrollbar mt-4 ">
+                        {
+                            !isTopRatedMoviesLoading && topRatedMovies && topRatedMovies.results.map((movie) => {
                                 return (
                                     <div key={movie.id} className="relative movie-card">
                                         <Link to={`/watch/${movie.id}`}>

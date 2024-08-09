@@ -11,7 +11,8 @@ export default {
         'dark-1': '#000000',
         'dark-2': '#05151E',
         'brown':'#ED7430',
-        'dim-1': 'rgba(53, 53, 53, 0.49)'
+        'dim-1': 'rgba(53, 53, 53, 0.49)',
+        'dim-gray': '#4F4F4F',
       },
       fontFamily: {
         sans: ['Advent Pro', 'sans-serif']
