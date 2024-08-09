@@ -1,8 +1,8 @@
 import MovieBackdrop from "@/components/shared/MovieBackdrop";
+import MovieList from "@/components/shared/MovieList";
 import NowPlayingMovieList from "@/components/ui/NowPlayingMovieList";
 import { useGetNowPlaying, useGetPopular, useGetTopRated } from "@/lib/react-query/queriesAndMutations"
 import { getMovieById } from "@/lib/tmdb/api";
-import { tmdbImage } from "@/lib/utils";
 import { IMovieDetails } from "@/types";
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom";
@@ -57,43 +57,21 @@ const Home = () => {
             </section>
             <section id="popular-movies" className="mt-4 py-5">
                 <div className="padded-container text-white">
-                    <h2 className="text-2xl">Popular Movies</h2>
-                    <div className="movie-list-hor custom-scrollbar mt-4 ">
-                        {
-                            !isPopularMoviesLoading && popularMovies && popularMovies.results.map((movie) => {
-                                return (
-                                    <div key={movie.id} className="relative movie-card">
-                                        <Link to={`/watch/${movie.id}`}>
-                                            <div className="relative movie-card__img overflow-clip rounded-[5px]">
-                                                <img src={tmdbImage(movie.poster_path)} className="absolute opacity-70 h-full object-cover w-full" />
-                                            </div>
-                                        </Link>
-                                        <p className="mt-2 lg:text-lg text-ellipsis ">{movie.title}</p>
-                                    </div>
-                                )
-                            })
-                        }
-                    </div>
+                    <h2 className="text-2xl">What's Popular</h2>
+                    <MovieList
+                        isLoading={isPopularMoviesLoading}
+                        movies={popularMovies?.results || []}
+                    />
                 </div>
             </section>
             <section id="top-rated-movies" className="mt-4 py-5">
                 <div className="padded-container text-white">
                     <h2 className="text-2xl">Top Rated Movies</h2>
                     <div className="movie-list-hor custom-scrollbar mt-4 ">
-                        {
-                            !isTopRatedMoviesLoading && topRatedMovies && topRatedMovies.results.map((movie) => {
-                                return (
-                                    <div key={movie.id} className="relative movie-card">
-                                        <Link to={`/watch/${movie.id}`}>
-                                            <div className="relative movie-card__img overflow-clip rounded-[5px]">
-                                                <img src={tmdbImage(movie.poster_path)} className="absolute opacity-70 h-full object-cover w-full" />
-                                            </div>
-                                        </Link>
-                                        <p className="mt-2 lg:text-lg text-ellipsis ">{movie.title}</p>
-                                    </div>
-                                )
-                            })
-                        }
+                    <MovieList
+                        isLoading={isTopRatedMoviesLoading}
+                        movies={topRatedMovies?.results || []}
+                    />
                     </div>
                 </div>
             </section>
