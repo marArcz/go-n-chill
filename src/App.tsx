@@ -2,6 +2,8 @@ import { Route, Routes } from 'react-router-dom'
 import Home from './_root/pages/Home'
 import RootLayout from './_root/RootLayout'
 import Watch from './_root/pages/Watch'
+import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from '@vercel/speed-insights/react'
 import './App.css'
 
 function App() {
@@ -15,6 +17,8 @@ function App() {
                     </Route>
                </Routes>
             </main>
+            <Analytics/>
+            <SpeedInsights/>
         </>
     )
 }

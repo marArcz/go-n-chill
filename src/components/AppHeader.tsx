@@ -8,7 +8,7 @@ const AppHeader = ({scrollPosition}:Props) => {
         <>
             <header className={`app-header ${scrollPosition >= 200 ? 'filled':''}`}>
                 <div>
-                    <img src="/images/logo-text.png" alt="" />
+                    <img src="/images/logo-text.png" alt="" className="" />
                 </div>
                 <div className="ms-auto">
                     <div className="search-box relative ">
