@@ -1,5 +1,5 @@
-export const tmdbImage = (path:string | null) => {
-    return 'https://image.tmdb.org/t/p/original/' + path
+export const tmdbImage = (path:string | null,size='original') => {
+    return `https://image.tmdb.org/t/p/${size}/${path}`
 }
 
 export function formatDate(dateString:string) {
