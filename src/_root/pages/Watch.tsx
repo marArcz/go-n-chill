@@ -10,7 +10,9 @@ import SoundWaveAnim from '@/components/shared/SoundWaveAnim';
 const Watch = () => {
     const { id } = useParams();
     const [showMovieView, setShowMovieView] = useState(false)
-    const { data: movie } = useGetMovieById(id || '');
+    const { data: movie,isPending } = useGetMovieById(id || '');
+    
+    if(isPending) return;
 
     return (
         <>
@@ -54,7 +56,7 @@ const Watch = () => {
                                 animate={{ opacity: 1 }}
                                 exit={{ opacity: 0 }}
                                 className={`lg:w-[300px] lg:h-[400px] w-[200px] glass-card overflow-clip ${showMovieView ? 'lg:block md:block hidden' : ''}`}>
-                                <img src={tmdbImage(movie?.poster_path || '')} className='w-full h-full opacity-70 max-h-full max-w-full bg-gray-600' alt={movie?.title || ''} />
+                                <img src={tmdbImage(movie?.poster_path || '','w300')} className='w-full h-full opacity-70 max-h-full max-w-full bg-gray-600' alt={movie?.title || ''} />
                             </motion.div>
                         </AnimatePresence>
                         <div className='flex-1'>
