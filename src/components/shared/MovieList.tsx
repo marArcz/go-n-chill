@@ -17,7 +17,7 @@ const MovieList = ({isLoading,movies}:Props) => {
                             <div key={movie.id} className="relative movie-card">
                                 <Link to={`/watch/${movie.id}`}>
                                     <div className="relative movie-card__img overflow-clip rounded-[5px]">
-                                        <img src={tmdbImage(movie.poster_path,'w300')} className="absolute opacity-70 h-full object-cover w-full" />
+                                        <img loading='lazy' src={tmdbImage(movie.poster_path,'w300')} className="absolute opacity-70 h-full object-cover w-full" />
                                     </div>
                                 </Link>
                                 <p className="mt-2 lg:text-lg lg:w-[232px] font-medium w-[150px] overflow-hidden text-ellipsis text-nowrap">{movie.title}</p>
