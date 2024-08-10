@@ -62,7 +62,7 @@
   }
 
   .backdrop-overlay {
-    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), #05151e);
+    background-image: linear-gradient(to bottom, rgba(138, 138, 138, 0.192), #05151e);
     @apply absolute top-0 left-0 w-full h-full;
   }
 

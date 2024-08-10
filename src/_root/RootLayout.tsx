@@ -1,12 +1,12 @@
 import AppHeader from "@/components/AppHeader"
 import { useEffect, useRef, useState } from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 
 const RootLayout = () => {
 
   const containerRef = useRef<HTMLDivElement>(null)
   const [scrollPosition, setScrollPosition] = useState(0);
-
+  const location = useLocation()
   // listen to scroll event
   useEffect(() => {
     const handleScroll = () => {
@@ -28,8 +28,8 @@ const RootLayout = () => {
 
   return (
     <>
-      <div className="w-full h-screen overflow-y-auto" ref={containerRef}>
-        <AppHeader scrollPosition={scrollPosition} />
+      <div className="w-full h-screen overflow-y-auto custom-scrollbar" ref={containerRef}>
+        <AppHeader showSearchBox={location.pathname !== '/search'} scrollPosition={scrollPosition} />
         <Outlet />
       </div>
     </>

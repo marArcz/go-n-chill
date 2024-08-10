@@ -10,9 +10,9 @@ import SoundWaveAnim from '@/components/shared/SoundWaveAnim';
 const Watch = () => {
     const { id } = useParams();
     const [showMovieView, setShowMovieView] = useState(false)
-    const { data: movie,isPending } = useGetMovieById(id || '');
-    
-    if(isPending || !id) return;
+    const { data: movie, isPending } = useGetMovieById(id || '');
+
+    if (isPending || !id) return;
 
     return (
         <>
@@ -50,13 +50,14 @@ const Watch = () => {
                 <motion.div
                     className={` transition-all padded-container relative ${showMovieView ? 'lg:mt-10 mt-4' : 'lg:mt-[-40vh] mt-[-20vh]'} mb-10`}>
                     <div className="flex lg:flex-row flex-col gap-x-10 gap-y-2 ">
+                        {/* movie poster */}
                         <AnimatePresence>
                             <motion.div
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
                                 exit={{ opacity: 0 }}
-                                className={`lg:w-[300px] lg:h-[400px] w-[200px] glass-card overflow-clip ${showMovieView ? 'lg:block md:block hidden' : ''}`}>
-                                <img src={tmdbImage(movie?.poster_path || '','w300')} className='w-full h-full opacity-70 max-h-full max-w-full bg-gray-600' alt={movie?.title || ''} />
+                                className={`lg:w-[300px] lg:h-[400px] w-[200px] glass-card overflow-clip ${showMovieView ? 'lg:block md:hidden hidden' : ''}`}>
+                                <img src={tmdbImage(movie?.poster_path || '', 'w300')} className='w-full h-full opacity-70 max-h-full max-w-full bg-gray-600' alt={movie?.title || ''} />
                             </motion.div>
                         </AnimatePresence>
                         <div className='flex-1'>

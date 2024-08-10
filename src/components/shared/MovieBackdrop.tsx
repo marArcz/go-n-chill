@@ -14,7 +14,7 @@ const MovieBackdrop = ({ imgUrl }: MovieBackdropProps) => {
                 <div className="backdrop-overlay"></div>
                 {
                     imgUrl ? (
-                        <img src={tmdbImage(imgUrl, 'w500')} alt="" className='h-[60vh] w-full object-cover object-top transition-all' />
+                        <img src={tmdbImage(imgUrl)} alt="" className='h-[60vh] w-full object-cover object-top transition-all' />
                     ) : (
                         <div className="movie-backdrop h-[60vh]">
                         </div>
