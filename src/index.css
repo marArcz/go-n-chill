@@ -3,6 +3,10 @@
 @tailwind components;
 @tailwind utilities;
 
+.body{
+  overflow-x: hidden !important;
+}
+
 @layer components {
   .app-header {
     @apply flex items-center lg:py-5 py-5 padded-container absolute z-10 box-border top-0 w-full left-0;
