@@ -12,7 +12,7 @@ const Watch = () => {
     const [showMovieView, setShowMovieView] = useState(false)
     const { data: movie,isPending } = useGetMovieById(id || '');
     
-    if(isPending) return;
+    if(isPending || !id) return;
 
     return (
         <>
